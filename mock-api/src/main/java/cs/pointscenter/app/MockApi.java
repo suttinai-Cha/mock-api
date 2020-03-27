@@ -23,4 +23,20 @@ public class MockApi {
 		  earn_point.setEarn_point(randomInt);
 	    return earn_point;
 	}
+	@GetMapping("/completeAck/{id}")    
+	public CompleteAckDTO completeAck(@PathVariable String id) {
+		CompleteAckDTO  earn_point = new CompleteAckDTO();
+		earn_point.setId(id);
+		earn_point.setStatus("True");
+	    return earn_point;
+	}
+	
+	
+	@GetMapping("/reversePoint/{id}")    
+	public ReverseDTO reversePoint(@PathVariable String id) {
+		ReverseDTO  earn_point = new ReverseDTO();
+		earn_point.setId(id);
+		earn_point.setStatus("True");
+	    return earn_point;
+	}
 }
