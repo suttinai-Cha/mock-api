@@ -1,9 +1,9 @@
-package cs.pointscenter.app;
+package cs.pointscenter.app.dto;
 
 import lombok.Data;
 
 @Data
-public class CompleteAckDTO {
+public class ReverseDTO {
 	private String id;
 	private String status;
 }

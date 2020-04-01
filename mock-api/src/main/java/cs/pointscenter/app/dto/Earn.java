@@ -1,4 +1,4 @@
-package cs.pointscenter.app;
+package cs.pointscenter.app.dto;
 
 import lombok.Data;
 
