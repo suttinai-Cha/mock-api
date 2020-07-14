@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.amazonaws.util.EC2MetadataUtils;
+
 import cs.pointscenter.app.dto.CompleteAckDTO;
 import cs.pointscenter.app.dto.Earn;
 import cs.pointscenter.app.dto.InquiryPointRequestDTO;
@@ -22,6 +24,11 @@ public class MockApi {
 		  int randomInt = (int)(1000.0 * Math.random());
 		cosmetics.setPoint_balance(randomInt);
 	    return cosmetics;
+	}
+	@GetMapping("/InstanceId")    
+	   public String getInstanceId(){
+		
+	   return EC2MetadataUtils.getInstanceId();
 	}
 	@GetMapping("/earn/{id}")    
 	public Earn getAllEarn(@PathVariable String id) {
