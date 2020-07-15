@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-deployment
+  labels:
+    app: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-app
+        image: suttinai/my-app:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: docker-sock-volume
+          mountPath: /var/run/docker.sock
+        - name: jenkins-home
+          mountPath: "/var/jenkins_home"
+      volumes:
+      - name: jenkins-home
+        persistentVolumeClaim:
+          claimName: my-app-claim
+      - name: docker-sock-volume
+        hostPath:
+          path: /var/run/docker.sock
