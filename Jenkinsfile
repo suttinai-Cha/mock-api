@@ -17,14 +17,14 @@ pipeline {
             }
             post {
                 always {
-                    junit 'target/surefire-reports/*.xml'
+                    junit 'target/site/*.xml'
                 }
             }
         }
         stage('Build image') {
             steps {
                 script {
-                    dockerImage = docker.build("phayao/my-app")
+                    dockerImage = docker.build("suttinai/my-app")
                 }
             }
         }
