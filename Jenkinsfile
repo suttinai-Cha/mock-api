@@ -17,7 +17,7 @@ pipeline {
             }
             post {
                 always {
-                    junit 'target/site/*.xml'
+                    junit 'target/site/*.html'
                 }
             }
         }
