@@ -44,5 +44,10 @@ pipeline {
                 sh 'kubectl apply -f myapp-deployment.yml';
             }
         }
+        stage('Service') {
+            steps {
+                sh 'kubectl apply -f myapp-service.yml';
+            }
+        }        
     }
 }
